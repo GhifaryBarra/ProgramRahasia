@@ -20,7 +20,7 @@ const balloonImageUrl = 'Assets/ballon.png'; // Jalur sudah kamu perbarui
 const playlist = [
   { file: 'Music/Ed Sheeran - Perfect.mp3', title: 'Ed Sheeran - Perfect' },
   { file: 'Music/Taylor Swift - Love Story (Taylor’s Version) Lirik Terjemahan.mp3', title: 'Taylor Swift - Love Story' }, // Pastikan path ini benar
-  { file: 'Music/Third Song.mp3', title: 'Untukmu, Sayang' } // Pastikan path ini benar
+  { file: 'Music/Enchanted - Taylor Swift (Lirik Lagu Terjemahan).mp3', title: 'Taylor Swift - Enchanted' } // Pastikan path ini benar
 ];
 let currentTrack = 0; // Indeks lagu yang sedang diputar
 
