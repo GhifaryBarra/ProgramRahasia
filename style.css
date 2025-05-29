@@ -32,6 +32,71 @@ header, section {
     gap: 15px;
 }
 
+/* Tambahkan ini di style.css */
+.floating-text {
+  position: absolute;
+  color: pink;
+  font-size: 20px;
+  animation: fadeUp 1s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.popup-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  animation: zoomIn 0.4s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+  color: #e91e63;
+}
+
+.popup-content p {
+  font-size: 18px;
+}
+
+.popup-content .close {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  font-size: 28px;
+  color: #555;
+  cursor: pointer;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+
+
 h1 {
     font-size: 2.5em;
     color: #e91e63;
