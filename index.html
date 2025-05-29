@@ -19,11 +19,11 @@
     <h2 data-aos="fade-up" data-aos-duration="1000">📸 Kenangan Kita</h2>
     <div class="gallery" data-aos="fade-up" data-aos-duration="1500">
       <img src="Images/Gambar1.jpeg" data-aos="zoom-in" data-aos-duration="1000" alt="Kenangan 1">
-      <img src="Images/Gambar2.jpeg" data-aos="zoom-in" data-aos-duration="1200" alt="Kenangan 2">
+      <img src="Images/Gambar2.jpeg" data-aos="zoom-in" data-aos-duration="1200" alt="Kenangan 2" onclick="showSecretMessage()"/>
       <img src="Images/Gambar3.jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 3">
       <img src="Images/Gambar4.jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 4">
       <img src="Images/Gambar5.jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 5">
-      <img src="Images/Gambar6.jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 6">     
+      <img src="Images/Gambar6.jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 6">
       <img src="Images/Berdua1.jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 7">     
       <img src="Images/Fotoka (1).jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 8">     
       <img src="Images/Fotoka (2).jpeg" data-aos="zoom-in" data-aos-duration="1400" alt="Kenangan 9">     
@@ -34,6 +34,8 @@
     </div>
     <button class="btn" onclick="showPage('loveLetter')">Lanjut Sayang ❤️</button> 
   </section>
+
+  <div id="floatingTextContainer"></div>
 
   <section data-aos="fade-down" id="loveLetter" style="display: none;">
     <h2>💌 Kamu Inget Ga?</h2>
@@ -92,10 +94,7 @@
     <div id="animationContainer"></div>
   </section>
 
-  <audio id="bgMusic" loop>
-    <source src="Music/Ed Sheeran - Perfect.mp3" type="audio/mpeg" />
-    <source src="Music/Taylor Swift - Love Story (Taylor’s Version) Lirik Terjemahan.mp3" type="audio/mpeg" />
-    </audio>
+  <audio id="bgMusic" loop></audio>
   <div class="music-box">
     <img id="musicIcon" src="Assets/music-icon.png.png" alt="music icon" />
     <p id="musicTitle">Memuat lagu...</p>
@@ -109,9 +108,19 @@
   <script src="script.js"></script>
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
-    // AOS.init() sekarang dipanggil di script.js di dalam DOMContentLoaded listener
-    // Jadi, baris ini bisa dihapus atau tetap ada sebagai fallback jika script.js gagal dimuat
-    // AOS.init(); 
+    // Fallback jika script.js gagal
+    AOS.init(); 
   </script>
+
+  <div id="secretPopup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="closeSecretMessage()">&times;</span>
+    <h2>🎁 Cie Ketemu </h2>
+    <p>Kamu itu anugerah terindah dalam hidupku. Aku bersyukur setiap hari bisa kenal dan jatuh cinta sama kamu. Foto ini menunjukan betapa indahnya tuhan menciptakan manusia 😘</p>
+    <p><strong>Aku cinta kamu, selalu. 💖</strong></p>
+  </div>
+</div>
+
+
 </body>
 </html>
