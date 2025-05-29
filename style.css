@@ -1,0 +1,330 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffeef2;
+    color: #333;
+    text-align: center;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+
+    /* Tambahan untuk center semua konten secara vertikal dan horizontal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* Buat body penuh tinggi layar */
+    min-height: 100vh;
+    padding: 20px; /* agar ada space di pinggir */
+}
+
+header, section {
+    padding: 40px 20px;
+
+    /* Supaya ukuran section gak lebar melebihi 600px agar rapi */
+    max-width: 600px;
+    width: 100%;
+
+    /* Tambahan untuk center konten (teks dan tombol) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #e91e63;
+}
+
+h2 {
+    font-size: 2em;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 25px; /* Sedikit lebih besar */
+    background: #e91e63;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em; /* Sedikit lebih besar */
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Tambah transisi */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambah bayangan */
+}
+
+.btn:hover {
+    background-color: #d81b60; /* Warna sedikit lebih gelap saat hover */
+    transform: translateY(-2px); /* Efek sedikit terangkat */
+}
+
+/* Gaya untuk galeri pertama (mainGallery) */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px; /* Jarak antar gambar */
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 180px; /* Sedikit disesuaikan agar lebih seragam */
+    height: 180px; /* Tinggi tetap */
+    object-fit: cover; /* Penting agar gambar tidak terdistorsi */
+    margin: 0; /* Hapus margin lama */
+    border-radius: 15px; /* Sedikit lebih bulat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Gaya untuk galeri kedua (initialLoveMessage) */
+.memory-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.memory-item {
+    width: 250px; /* Lebar yang konsisten untuk semua gambar */
+    height: 250px; /* Tinggi yang konsisten untuk semua gambar */
+    border-radius: 20px;
+    object-fit: cover; /* Penting agar gambar tidak terdistorsi dan mengisi kotak */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.memory-item:hover {
+    transform: scale(1.05); /* Memperbesar sedikit saat di-hover */
+}
+
+
+canvas#heartCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.music-box {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff5fa;
+    padding: 10px 15px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.music-box img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.5s linear;
+}
+
+.spin {
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
+#musicTitle {
+    font-weight: bold;
+    font-size: 14px;
+    color: #e91e63;
+}
+
+/* --- Gaya untuk Animasi Kue dan Balon --- */
+#animationContainer {
+    position: fixed; /* Agar bisa melayang di atas konten lain */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Penting: agar tidak menghalangi klik di bawahnya */
+    overflow: hidden; /* Pastikan balon tidak keluar area */
+    z-index: 9999; /* Pastikan di atas elemen lain */
+}
+
+.animated-element {
+    position: absolute;
+    opacity: 0;
+    /* Transform awal akan diatur oleh keyframes */
+}
+
+.animated-cake {
+    width: 150px; /* Ukuran kue */
+    height: auto;
+    left: 50%;
+    bottom: 0; /* Mulai dari bawah */
+    transform: translateX(-50%) translateY(100px) scale(0.5); /* Posisi awal sebelum animasi */
+    animation: bounceIn 1s forwards; /* Animasi pantulan */
+    z-index: 10000;
+}
+
+.animated-balloon {
+    width: 60px; /* Ukuran balon */
+    height: auto;
+    animation: riseAndFade 4s forwards; /* Animasi naik dan memudar */
+}
+
+/* --- Gaya untuk Animasi Kue dan Balon (Ditambahkan/Diperbarui) --- */
+
+/* Gaya untuk Overlay Gelap */
+.cake-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap transparan */
+    z-index: 9998; /* Di bawah kue tapi di atas konten lain */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Transisi saat muncul/menghilang */
+}
+
+.cake-overlay.show {
+    opacity: 1;
+}
+
+/* Penyesuaian untuk Animated Cake */
+.animated-cake {
+    width: 250px; /* Ukuran kue lebih besar */
+    height: auto;
+    position: fixed; /* Ubah ke fixed agar bisa center layar */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Mulai dari kecil di tengah */
+    animation: cakeAppear 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards; /* Animasi pop yang lebih dramatis */
+    z-index: 9999; /* Pastikan di atas overlay */
+}
+
+/* Keyframes untuk Animasi Kue Baru */
+@keyframes cakeAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1); /* Sedikit membesar */
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1); /* Kembali ke ukuran normal */
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(200px) scale(0.2);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-20px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
+@keyframes riseAndFade {
+    0% {
+        opacity: 0;
+        transform: translateY(0) rotate(0deg);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-800px) rotate(360deg); /* Terbang ke atas */
+    }
+}
+
+/* Media Queries untuk Responsif */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.7em;
+    }
+    p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .gallery img {
+        width: 150px;
+        height: 150px;
+    }
+    .memory-item {
+        width: 200px;
+        height: 200px;
+    }
+    .music-box {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 12px;
+    }
+    .animated-cake {
+        width: 120px;
+    }
+    .animated-balloon {
+        width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    header, section {
+        padding: 20px 10px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .gallery img {
+        width: 120px;
+        height: 120px;
+    }
+    .memory-item {
+        width: 150px;
+        height: 150px;
+    }
+    .animated-cake {
+        width: 100px;
+    }
+    .animated-balloon {
+        width: 40px;
+    }
+}
