@@ -60,6 +60,20 @@ function bukaHadiah() {
   }
 }
 
+// Tambahkan di script.js
+document.addEventListener("mousemove", function (e) {
+  const text = document.createElement("div");
+  text.classList.add("floating-text");
+  text.textContent = "I ❤️ U";
+  text.style.left = `${e.pageX}px`;
+  text.style.top = `${e.pageY}px`;
+  document.body.appendChild(text);
+  setTimeout(() => {
+    text.remove();
+  }, 1000);
+});
+
+
 // Play musik dari playlist berdasarkan indeks
 function playMusic(index) {
   if (index >= playlist.length) {
@@ -118,6 +132,14 @@ musicIcon.addEventListener("click", () => {
     music.pause();
   }
 });
+
+function showSecretMessage() {
+  document.getElementById("secretPopup").style.display = "block";
+}
+
+function closeSecretMessage() {
+  document.getElementById("secretPopup").style.display = "none";
+}
 
 // --- Animasi Kue dan Balon (saat klik tombol hadiah) ---
 
